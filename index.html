@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORX TEMPE OREX</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0a0f2c, #1a0033);
+    color: white;
+}
+
+header {
+    background: linear-gradient(90deg, darkred, navy);
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header img {
+    width: 250px;
+}
+
+h1 {
+    margin-top: 10px;
+    font-size: 40px;
+    color: white;
+}
+
+.section {
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.roles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.role-card {
+    background: linear-gradient(145deg, #b30000, #001f4d);
+    border-radius: 15px;
+    padding: 20px;
+    width: 150px;
+    box-shadow: 0 0 15px red;
+    transition: 0.3s;
+}
+
+.role-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px white;
+}
+
+.members {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.member-card {
+    background: white;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+form {
+    margin-top: 30px;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+button {
+    padding: 10px 20px;
+    background: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkred;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="logo.png" alt="Logo ORX">
+    <h1>ORX TEMPE OREX</h1>
+    <p>Squad Mobile Legends Professional</p>
+</header>
+
+<div class="section">
+    <h2>🔥 Role Squad 🔥</h2>
+    <div class="roles">
+        <div class="role-card">⚔ Hyper</div>
+        <div class="role-card">🛡 EXP</div>
+        <div class="role-card">✨ Mid</div>
+        <div class="role-card">🏹 Gold</div>
+        <div class="role-card">🚀 Roam</div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>👥 20 Member Squad</h2>
+    <div class="members" id="memberList">
+        <!-- Member akan muncul di sini -->
+    </div>
+
+    <form onsubmit="addMember(event)">
+        <input type="text" id="memberName" placeholder="Masukkan Nama Member" required>
+        <button type="submit">Tambah Member</button>
+    </form>
+</div>
+
+<script>
+let memberCount = 0;
+const maxMember = 20;
+
+function addMember(event) {
+    event.preventDefault();
+
+    const nameInput = document.getElementById("memberName");
+    const memberList = document.getElementById("memberList");
+
+    if (memberCount >= maxMember) {
+        alert("Member sudah mencapai 20 orang!");
+        return;
+    }
+
+    const div = document.createElement("div");
+    div.className = "member-card";
+    div.textContent = nameInput.value;
+
+    memberList.appendChild(div);
+    nameInput.value = "";
+    memberCount++;
+}
+</script>
+
+</body>
+</html>
